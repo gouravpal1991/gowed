@@ -1,12 +1,32 @@
 import React, {Component} from 'react';
-import {Dimensions} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 const styles = {
+  container: {
+    flex: 1,
+    marginVertical: 10,
+    marginHorizontal: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: StyleSheet.hairlineWidth,
+  },
+  wave: {
+    width: 100,
+    aspectRatio: 1,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+  },
+  waveBall: {
+    width: 100,
+    aspectRatio: 1,
+    borderRadius: 50,
+    overflow: 'hidden',
+  },
   scrollViewStyle: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#99003d',
+    backgroundColor: '#ffffff',
   },
 
   textTitle: {

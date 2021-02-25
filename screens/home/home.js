@@ -196,7 +196,7 @@ function Home({props}) {
             /> */}
             <SendToList />
 
-            <OurServices />
+            <OurServices props={props} />
 
             <FavTransactions />
 

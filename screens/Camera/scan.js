@@ -9,6 +9,7 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
+import Wave from 'react-native-waveview';
 
 const Scan = (props) => {
   const {
@@ -20,17 +21,27 @@ const Scan = (props) => {
     googleVisionDetetion,
     loading,
   } = props;
-  const desccription =
-    'Cloud Vision API allows developers to easily integrate vision detection features including image labeling, face, and landmark detection, optical character recognition (OCR), and tagging of explicit content, within applications';
+
+  if (loading === true) {
+    return (
+      <View style={styles.SpinnerStyle}>
+        <ActivityIndicator size={props.size || 'large'} color="#0000ff" />
+        <Text style={{color: 'black', fontSize: 18, fontWeight: 'bold'}}>
+          Analyzing....
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.scrollViewStyle}>
       {/* View When app starts, here we will dive for camera and vision things */}
       <Fragment>
         <StatusBar barStyle="dark-content" />
-        <Text style={styles.textTitle}>
+        {/* <Text style={styles.textTitle}>
           Welcome To React-Native Google Vision Tutorial !
-        </Text>
-        {!camera && !cameraResult && (
+        </Text> */}
+        {/* {!camera && !cameraResult && (
           <View style={styles.cardView}>
             <Text numberOfLines={8} style={styles.descText}>
               {desccription}
@@ -42,17 +53,31 @@ const Scan = (props) => {
               <Text style={styles.buttonTextStyle}>Click to Scan !</Text>
             </TouchableOpacity>
           </View>
-        )}
-        {!googleVisionDetetion && loading && (
+        )} */}
+        {loading && (
           <View style={styles.SpinnerStyle}>
             <ActivityIndicator size={props.size || 'large'} />
             <Text style={{color: 'white', fontSize: 18, fontWeight: 'bold'}}>
-              Wait i am fetching data....
+              Analyzing....
             </Text>
           </View>
         )}
-        {/* When Google Vision returns response successfully */}
         {googleVisionDetetion && (
+          <View style={styles.container}>
+            <Wave
+              style={styles.waveBall}
+              H={70}
+              waveParams={[
+                {A: 10, T: 180, fill: '#62c2ff'},
+                {A: 15, T: 140, fill: '#0087dc'},
+                {A: 20, T: 100, fill: '#1aa7ff'},
+              ]}
+              animated={true}
+            />
+          </View>
+        )}
+        {/* When Google Vision returns response successfully */}
+        {/* {googleVisionDetetion && (
           <Fragment>
             <Text style={styles.textTitle1}>Result !</Text>
 
@@ -61,25 +86,18 @@ const Scan = (props) => {
                 googleVisionDetetion ? styles.scanCardView : styles.cardView
               }>
               <ScrollView>
-                {googleVisionDetetion.webDetection.webEntities.map(
-                  (data, index) => {
-                    return (
-                      <View
-                        key={index}
-                        style={{
-                          borderWidth: 2,
-                          borderColor: 'black',
-                          margin: 10,
-                        }}>
-                        <Text>entityId : {data.entityId}</Text>
-                        <Text>score : {data.score}</Text>
-                        <Text numberOfLines={1}>
-                          description: {data.description}
-                        </Text>
-                      </View>
-                    );
-                  },
-                )}
+                return (
+                <View
+                  style={{
+                    borderWidth: 2,
+                    borderColor: 'black',
+                    margin: 10,
+                  }}>
+                  {googleVisionDetetion && (
+                    <Text>Description: {googleVisionDetetion}</Text>
+                  )}
+                </View>
+                );
               </ScrollView>
             </View>
 
@@ -89,7 +107,7 @@ const Scan = (props) => {
               <Text style={styles.buttonTextStyle}>Click to Scan again!</Text>
             </TouchableOpacity>
           </Fragment>
-        )}
+        )} */}
 
         {/* React Native camera View */}
         {camera && (
@@ -123,7 +141,7 @@ const Scan = (props) => {
               <TouchableOpacity
                 onPress={() => takePicture(this.camera)}
                 style={styles.capture}>
-                <Text style={{fontSize: 14}}> SNAP </Text>
+                <Text style={{fontSize: 14}}> Capture !! </Text>
               </TouchableOpacity>
             </View>
           </View>

@@ -19,6 +19,7 @@ import ThemeContextProvider, {ThemeContext} from './src/contexts/ThemeContext';
 import {navigationRef} from './RootNavigation';
 import Quicktransfer from './screens/transfer/quick-transfer';
 import {DeviceEventEmitter} from 'react-native';
+import CameraContainer from './screens/Camera/cameracontainer';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -139,6 +140,7 @@ const App = () => {
           }}>
           <Stack.Screen name="Login" component={Login} options={null} />
           <Stack.Screen name="PinCode" component={Pincode} />
+          <Stack.Screen name="ScanComponent" component={CameraContainer} />
           <Stack.Screen
             name="Dashboard"
             component={AppNavigation}

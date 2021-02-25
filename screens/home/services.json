@@ -18,7 +18,7 @@
         },
         {
             "id": 3,
-            "service": "Card",
+            "service": "Scan & Listen",
             "icon": "credit-card",
             "bg": "#F96782",
             "iconColor": "#ffffff"
