@@ -11,6 +11,8 @@ target 'gowed' do
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'GoogleSignIn', '~> 5.0.2'
 
+  pod 'react-native-voice', :path => '../node_modules/react-native-voice'
+
   target 'gowedTests' do
     inherit! :complete
     # Pods for testing

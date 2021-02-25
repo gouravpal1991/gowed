@@ -1,0 +1,61 @@
+
+{
+    "beneficiaries": [
+        {
+            "id": 1,
+            "name": "Nidhi",
+            "image": "https://storage.googleapis.com/cricketimages/Players/P5.png",
+            "accNo": "4378787656439",
+            "bankName": "HDFC BANK"
+        },
+        {
+            "id": 2,
+            "name": "Veena",
+            "image": "https://storage.googleapis.com/cricketimages/Players/P5.png",
+            "accNo": "4378787656439",
+            "bankName": "Deutsche BANK"
+        },
+        {
+            "id": 3,
+            "name": "Suraj G",
+            "image": "https://m.economictimes.com/thumb/msid-70304475,width-1200,height-900,resizemode-4,imgsize-694926/mahendra-singh-dhoni-pulls-out-of-west-indies-tour-takes-two-month-break-amid-retirement-speculation.jpg",
+            "accNo": "4378787656439",
+            "bankName": "Deutsche BANK"
+        },
+        {
+            "id": 4,
+            "name": "Suraj V",
+            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+            "accNo": "4378787656439",
+            "bankName": "Deutsche BANK"
+        },
+        {
+            "id": 5,
+            "name": "Vikas",
+            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+            "accNo": "4378787656439",
+            "bankName": "Deutsche BANK"
+        },
+        {
+            "id": 6,
+            "name": "Himanshu",
+            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+            "accNo": "4378787656439",
+            "bankName": "Deutsche BANK"
+        },
+        {
+            "id": 7,
+            "name": "Harsh",
+            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+            "accNo": "4378787656439",
+            "bankName": "Deutsche BANK"
+        },
+        {
+            "id": 8,
+            "name": "Sahil",
+            "image": "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+            "accNo": "4378787656439",
+            "bankName": "Deutsche BANK"
+        }
+    ]
+}

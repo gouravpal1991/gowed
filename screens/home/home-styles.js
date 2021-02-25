@@ -1,5 +1,11 @@
+
 import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
+  image: {
+    flex: 1,
+    resizeMode:"contain",
+    justifyContent: "center"
+  },
   yearContainerStyle: {
     backgroundColor: '#fff',
     alignItems: 'flex-start',
@@ -26,12 +32,13 @@ export default StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     backgroundColor: '#EE6080',
-    padding:20
+    // padding:20,
+    paddingBottom:200
   },
   gowed: {
     // fontFamily: 'Bigdey',
     // color: '#ffffff',
-    fontSize: 40,
+    fontSize: 30,
     // height: 150,
     // marginTop: 40,
   },

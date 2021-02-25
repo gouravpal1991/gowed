@@ -26,7 +26,7 @@ export default StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     backgroundColor: '#EE6080',
-    padding:20
+    padding: 20,
   },
   gowed: {
     // fontFamily: 'Bigdey',

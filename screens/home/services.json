@@ -1,0 +1,41 @@
+
+
+{
+    "services": [
+        {
+            "id": 1,
+            "service": "Accounts",
+            "icon": "account-circle",
+            "bg": "#24C5BB",
+            "iconColor": "#ffffff"
+        },
+        {
+            "id": 2,
+            "service": "Transfer",
+            "icon": "sync-alt",
+            "bg": "#50649C",
+            "iconColor": "#ffffff"
+        },
+        {
+            "id": 3,
+            "service": "Card",
+            "icon": "credit-card",
+            "bg": "#F96782",
+            "iconColor": "#ffffff"
+        },
+        {
+            "id": 4,
+            "service": "Loan",
+            "icon": "attach-money",
+            "bg": "#CF8407",
+            "iconColor": "#ffffff"
+        },
+        {
+            "id": 5,
+            "service": "Bill Payment",
+            "icon": "account-balance-wallet",
+            "bg": "#5DC9E3",
+            "iconColor": "#ffffff"
+        }
+    ]
+}

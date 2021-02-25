@@ -1,0 +1,18 @@
+{
+    "favtransactions": [
+        {
+            "id": 1,
+            "transName": "Tata Sky",
+            "icon": "remote-tv",
+            "description": "Tata sky monthly recharge",
+            "amount": "748"
+        },
+        {
+            "id": 2,
+            "transName": "VI Mobile Recharge",
+            "icon": "cellphone-android",
+            "description": "Monthly recharge + 91 77588 21771",
+            "amount": "499"
+        }
+    ]
+}

@@ -1,0 +1,141 @@
+
+{
+    "ATM": [
+      {
+        "Identification": "DB_1",
+        "Location": {
+          "Id": "DEU0809",
+          "BranchName": "Deutsche Bank, Magarpatta",
+          "Address": "Tower 5, Cybercity, Magarpatta, Hadapsar, Pune, Maharashtra, 411028, India",
+          "Latitude": "18.513097466467986",
+          "Longitude": "73.92474426653668"
+        },
+        "Accessibility": {
+          "braille": true,
+          "audio": true,
+          "multilanguage": true,
+          "wheelChairRamp": true,
+          "metalPathway": true
+        },
+        "IsOperational": true,
+        "WorkingDays": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "WorkingHours": {
+          "fromTime": "08:00",
+          "toTime": "22:30"
+        },
+        "SupportedLanguages": [
+          "hi",
+          "en",
+          "fr",
+          "es",
+          "de"
+        ],
+        "ATMServices": [
+          "CashWithdrawal",
+          "Cheque Deposit",
+          "PINChange",
+          "MobilePhoneTopUp",
+          "Balance",
+          "MiniStatement",
+          "CharityDonation"
+        ],
+        "SupportedCurrencies": [
+          "INR"
+        ],
+        "MinimumPossibleAmount": "100"
+      },
+      {
+        "Identification": "DB_2",
+        "Location": {
+          "Id": "DEU0801",
+          "BranchName": "ICICI Bank, Aundh",
+          "Address": "ITI Rd, Ward No. 8, Pushpak Park, Aundh, Pune, Maharashtra 411007, India",
+          "Latitude": "19.163586773565346",
+          "Longitude": "73.85211419962344"
+        },
+        "Accessibility": {
+          "braille": false,
+          "audio": false,
+          "multilanguage": true,
+          "wheelChairRamp": true,
+          "metalPathway": false
+        },
+        "IsOperational": true,
+        "WorkingDays": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "WorkingHours": {
+          "fromTime": "11:00",
+          "toTime": "17:30"
+        },
+        "SupportedLanguages": [
+          "hi",
+          "en"
+        ],
+        "ATMServices": [
+          "CashWithdrawal",
+          "Cheque Deposit",
+          "PINChange",
+          "Balance",
+          "MiniStatement"
+        ],
+        "SupportedCurrencies": [
+          "INR"
+        ],
+        "MinimumPossibleAmount": "100"
+      },
+      {
+        "Identification": "DB_3",
+        "Location": {
+          "Id": "DEU0808",
+          "BranchName": "HDFC Bank, Yerwada",
+          "Address": "HDFC Global Services Pvt Ltd, Tower H, Tech Park One, Airport road, Yerwada, Pune - 411006",
+          "Latitude": "18.550817783042376",
+          "Longitude": "73.89025376705283"
+        },
+        "Accessibility": {
+          "braille": false,
+          "audio": true,
+          "multilanguage": false,
+          "wheelChairRamp": true,
+          "metalPathway": true
+        },
+        "IsOperational": true,
+        "WorkingDays": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "WorkingHours": {
+          "fromTime": "11:00",
+          "toTime": "17:30"
+        },
+        "SupportedLanguages": [
+          "en"
+        ],
+        "ATMServices": [
+          "CashWithdrawal",
+          "Cheque Deposit",
+          "Balance",
+          "MiniStatement"
+        ],
+        "SupportedCurrencies": [
+          "INR"
+        ],
+        "MinimumPossibleAmount": "100"
+      }
+    ]
+  }

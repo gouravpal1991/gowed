@@ -6,9 +6,36 @@ export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
   const [user, setUser] = useState({});
-//   useEffect(() => {
-//     readUserData();
-//   }, [user]);
+  const [balance, setbalance] = useState('300000.58');
+  const [successVisible, setSuccessVisible] = React.useState(false);
+  const [quickTransferVisible, setQuickTransferVisible] = useState(false);
+  const [toUser, setToUser] = useState({});
+
+  const [isVoiceEnabled, setVoiceEnabled] = useState(true);
+
+  //   useEffect(() => {
+  //     readUserData();
+  //   }, [user]);
+
+  const enableVoiceAssistant = () => {
+    setVoiceEnabled(true);
+  };
+
+  const disableVoiceAssistant = () => {
+    setVoiceEnabled(false);
+  };
+
+  const setAvailableBalance = (balance) => {
+    setbalance(balance);
+  };
+
+  const showSuccessModal = () => setSuccessVisible(true);
+  const hideSuccessModal = () => setSuccessVisible(false);
+
+  const showQuickModal = () => setQuickTransferVisible(true);
+  const hideQuickModal = () => setQuickTransferVisible(false);
+
+  const setToTransferUser = (user) => setToUser(user);
 
   const readUserData = async () => {
     try {
@@ -20,7 +47,25 @@ const UserContextProvider = (props) => {
   };
 
   return (
-    <UserContext.Provider value={{user, readUserData}}>
+    <UserContext.Provider
+      value={{
+        user,
+        readUserData,
+        balance,
+        setbalance,
+        setAvailableBalance,
+        showSuccessModal,
+        hideSuccessModal,
+        successVisible,
+        showQuickModal,
+        hideQuickModal,
+        quickTransferVisible,
+        setToTransferUser,
+        toUser,
+        isVoiceEnabled,
+        enableVoiceAssistant,
+        disableVoiceAssistant,
+      }}>
       {props.children}
     </UserContext.Provider>
   );

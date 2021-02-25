@@ -1,4 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
+import 'intl';
+import 'intl/locale-data/jsonp/en';
 import React, {useContext} from 'react';
 import {View, FlatList, Text, Dimensions} from 'react-native';
 import {Card, List, Appbar} from 'react-native-paper';
@@ -15,8 +17,15 @@ import DoubleTap from '../common/DoubleTap';
 import styles from './home-styles';
 import {ThemeContext} from '../../src/contexts/ThemeContext';
 import {ScrollView} from 'react-native-gesture-handler';
+import {UserContext} from '../../src/contexts/usercontext';
 
-function Home(props) {
+import SendToList from './sendto-list';
+import OurServices from './our-services';
+import UserView from './user-view';
+import BalanceCardView from './balance-card-view';
+import FavTransactions from './fav-transactions';
+
+function Home({props}) {
   const {
     isLightTheme,
     light,
@@ -24,7 +33,15 @@ function Home(props) {
     toggleTheme,
     handleFontSize,
     isFontLarge,
+    setNavigationProps,
+    navigationProps,
   } = useContext(ThemeContext);
+
+  const {balance} = useContext(UserContext);
+
+  if (!navigationProps) {
+    setNavigationProps(props);
+  }
   const theme = isLightTheme ? light : dark;
   const DATA = [
     {
@@ -73,7 +90,7 @@ function Home(props) {
     marginVertical: 8,
     ...chartConfig.style,
   };
-  const progressChartData = [0.0, 0.0, 0.6];
+  const progressChartData = [0.2, 0.5, 0.8];
 
   const pieChartData = [
     {
@@ -122,7 +139,7 @@ function Home(props) {
       <Card
         elevation={5}
         style={{
-          margin: 15,
+          margin: 5,
           borderRadius: 10,
           height: theme.iconContainer,
           width: theme.iconContainer,
@@ -155,16 +172,7 @@ function Home(props) {
 
   return (
     <View style={{flex: 1}}>
-      <Appbar.Header style={[styles.appHeader, {backgroundColor: theme.text}]}>
-        <Appbar.Action icon="menu" color={theme.bg} />
-        <Appbar.Content title="Overview" color={theme.bg} />
-        <Appbar.Action
-          icon={isLightTheme ? 'weather-sunny' : 'brightness-2'}
-          color={theme.themeToggleColor}
-          onPress={toggleTheme}
-          size={32}
-        />
-      </Appbar.Header>
+      <UserView />
 
       <ScrollView
         style={[
@@ -172,42 +180,41 @@ function Home(props) {
           {
             backgroundColor: theme.bg,
           },
-        ]}>
+        ]}
+        showsVerticalScrollIndicator={false}>
         <DoubleTap onDoubleTap={handleFontSize}>
           <View>
-            <Text style={[{color: theme.text, fontSize: theme.labelFont}]}>
-              {'Your assets'}
-            </Text>
-            <Text style={[styles.gowed, {color: theme.text}]}>
-              {' '}
-              {'\u20B9' + ' 20,00,000.58'}
-            </Text>
+            <BalanceCardView />
 
-            <ProgressChart
+            {/* <ProgressChart
               data={progressChartData}
               width={width}
-              height={height}
+              height={200}
               chartConfig={chartConfig}
               style={graphStyle}
               hideLegend={true}
-            />
+            /> */}
+            <SendToList />
 
-            <FlatList
+            <OurServices />
+
+            <FavTransactions />
+
+            {/* <FlatList
+            // style={{width:'100%', backgroundColor:theme.text}}
               showsVerticalScrollIndicator={false}
               data={DATA}
               numColumns={3}
               renderItem={getToDoListItem}
-              keyExtractor={(item) => item.id}
-            />
-
-
-            
+              keyExtractor={item => item.id}
+            /> */}
 
             {/* <List.Item
           title="First Item"
           description="Item description"
           left={(props) => <List.Icon {...props} icon="folder" />}
         /> */}
+            <View style={{paddingBottom: 200}} />
           </View>
         </DoubleTap>
       </ScrollView>

@@ -4,6 +4,7 @@ export const ThemeContext = createContext();
 
 class ThemeContextProvider extends Component {
   state = {
+    isAccessibilityOn: true,
     isLightTheme: true,
     isFontLarge: false,
     dark: {
@@ -23,6 +24,10 @@ class ThemeContextProvider extends Component {
       iconSize: 40,
       iconContainer: 100,
       noOfColumns: 3,
+      inputHeight: 40,
+      availableBalance: 'white',
+      favTransBg: '#27292E',
+      favTransIcon: '#D8DFE4',
     },
     light: {
       text: '#042245',
@@ -31,7 +36,7 @@ class ThemeContextProvider extends Component {
       bgGradientFrom: '#ffffff',
       bgGradientTo: '#ffffff',
       chartColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-      themeToggleColor: '#FCDF5D',
+      themeToggleColor: '#FAAB5F',
       dashboardIcon: '',
       button: '#3779B2',
       labelFont: 20,
@@ -39,7 +44,12 @@ class ThemeContextProvider extends Component {
       iconSize: 40,
       iconContainer: 100,
       noOfColumns: 3,
+      inputHeight: 40,
+      availableBalance: 'green',
+      favTransBg: '#FAFAFA',
+      favTransIcon: '#B9C6CE',
     },
+    navigationProps: null,
   };
 
   //function to toggle theme
@@ -47,15 +57,27 @@ class ThemeContextProvider extends Component {
     this.setState({isLightTheme: !this.state.isLightTheme});
   };
 
+  toggleAccessbility = () => {
+    this.setState({
+      isAccessibilityOn: !this.state.isAccessibilityOn,
+    });
+  };
+
+  setNavigationProps = (navigationProps) => {
+    this.setState({
+      navigationProps,
+    });
+  };
   //increaseFont
   handleFontSize = () => {
     const isFontLarge = !this.state.isFontLarge;
     const theme = this.state.isLightTheme ? this.state.light : this.state.dark;
-    theme.labelFont = isFontLarge ? 24 : 20;
-    theme.iconTextFont = isFontLarge ? 19 : 15;
-    theme.iconSize = isFontLarge ? 60 : 40;
-    theme.iconContainer = isFontLarge ? 120 : 100;
+    theme.labelFont = isFontLarge ? 22 : 18;
+    theme.iconTextFont = isFontLarge ? 17 : 15;
+    theme.iconSize = isFontLarge ? 50 : 40;
+    theme.iconContainer = isFontLarge ? 110 : 100;
     theme.noOfColumns = isFontLarge ? 2 : 3;
+    theme.inputHeight = isFontLarge ? 50 : 40;
 
     if (this.state.isLightTheme) {
       this.setState({
@@ -77,6 +99,8 @@ class ThemeContextProvider extends Component {
           ...this.state,
           toggleTheme: this.toggleTheme,
           handleFontSize: this.handleFontSize,
+          setNavigationProps: this.setNavigationProps,
+          toggleAccessbility: this.toggleAccessbility,
         }}>
         {this.props.children}
       </ThemeContext.Provider>

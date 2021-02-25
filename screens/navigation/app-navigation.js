@@ -12,6 +12,7 @@ import Schedule from '../schedule';
 import AddBudget from '../budget/add-budget';
 import Guests from '../guests';
 import Transfer from '../transfer/transfer';
+import Settings from '../settings';
 
 const Tabs = AnimatedTabBarNavigator();
 
@@ -44,7 +45,7 @@ const TabBarIcon = (props) => {
 
 const HomeScreen = (props) => (
   <Screen>
-    <Home />
+    <Home props={props} />
   </Screen>
 );
 
@@ -91,7 +92,7 @@ const AppNavigation = () => {
         tabBarBackground: theme.text,
       }}>
       <Tabs.Screen
-        name="Accounts"
+        name="Dashboard"
         component={HomeScreen}
         options={{
           tabBarIcon: ({focused, color}) => (
@@ -117,7 +118,7 @@ const AppNavigation = () => {
         }}
       />
       <Tabs.Screen
-        name="Expenses"
+        name="Tx. Summary"
         component={Images}
         options={{
           tabBarIcon: ({focused, color}) => (
@@ -127,7 +128,7 @@ const AppNavigation = () => {
       />
       <Tabs.Screen
         name="More"
-        component={Guests}
+        component={Settings}
         options={{
           tabBarIcon: ({focused, color}) => (
             <TabBarIcon
