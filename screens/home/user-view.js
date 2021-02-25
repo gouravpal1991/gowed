@@ -31,7 +31,7 @@ const UserView = () => {
       <Avatar.Image
         size={40}
         source={{
-          uri: 'https://storage.googleapis.com/cricketimages/Players/P5.png',
+          uri: 'https://storage.googleapis.com/trailblazer_images/nidhi.png',
         }}
       />
       <View
