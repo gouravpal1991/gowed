@@ -16,6 +16,12 @@ class CameraContainer extends Component {
     };
   }
 
+  handleHomeClick = () => {
+    this.props.navigation.navigate('Dashboard');
+
+    console.log('clicked');
+  };
+
   takePicture = async (value) => {
     if (value) {
       const options = {quality: 0.5, base64: true};
@@ -160,6 +166,7 @@ class CameraContainer extends Component {
         activeCamera={this.activeCamera}
         googleVisionDetetion={googleVisionDetetion}
         loading={loading}
+        handleHomeClick={this.handleHomeClick}
       />
     );
   }

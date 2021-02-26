@@ -10,6 +10,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: StyleSheet.hairlineWidth,
+    paddingBottom: 20,
   },
   wave: {
     width: 100,
@@ -18,9 +19,9 @@ const styles = {
     backgroundColor: 'white',
   },
   waveBall: {
-    width: 100,
+    width: 120,
     aspectRatio: 1,
-    borderRadius: 50,
+    borderRadius: 20,
     overflow: 'hidden',
   },
   scrollViewStyle: {
@@ -121,7 +122,7 @@ const styles = {
     color: 'white',
     fontWeight: 'bold',
   },
-  container: {
+  cameracontainer: {
     flex: 1,
     flexDirection: 'column',
     backgroundColor: 'black',

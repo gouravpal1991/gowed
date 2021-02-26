@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import Wave from 'react-native-waveview';
+import {Button} from 'react-native-paper';
 
 const Scan = (props) => {
   const {
@@ -20,6 +21,7 @@ const Scan = (props) => {
     activeCamera,
     googleVisionDetetion,
     loading,
+    handleHomeClick,
   } = props;
 
   if (loading === true) {
@@ -74,6 +76,21 @@ const Scan = (props) => {
               ]}
               animated={true}
             />
+            <Text
+              style={{
+                color: 'Black',
+                fontSize: 18,
+                fontWeight: 'bold',
+                paddingTop: 40,
+              }}>
+              Reading file....
+            </Text>
+            <Button
+              style={{margin: 15}}
+              mode="contained"
+              onPress={handleHomeClick}>
+              Home
+            </Button>
           </View>
         )}
         {/* When Google Vision returns response successfully */}
@@ -111,7 +128,7 @@ const Scan = (props) => {
 
         {/* React Native camera View */}
         {camera && (
-          <View style={styles.container}>
+          <View style={styles.cameracontainer}>
             <RNCamera
               ref={(ref) => {
                 this.camera = ref;
