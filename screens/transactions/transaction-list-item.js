@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {Divider} from 'react-native-paper';
 import {COLORS} from '../../src/constants';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Avatar} from 'react-native-paper';
 class TransactionListItem extends Component {
   state = {};
 
@@ -29,9 +30,7 @@ class TransactionListItem extends Component {
         <View style={styles.listItemContainer}>
           {/* left view */}
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>
-              {item.Retail_Service_Cat_Name.charAt(0)}
-            </Text>
+            <Avatar.Icon size={32} icon={item.icon} color={'white'} style={{backgroundColor:item.color}} />
           </View>
 
           {/* title and sub title */}
@@ -62,7 +61,7 @@ class TransactionListItem extends Component {
           </View>
           <View style={styles.badge}>
             <View style={styles.badgeStyle}>
-              <Text style={styles.badgeText}>{item.Carbon_Emission + `g`}</Text>
+              <Text style={styles.badgeText}>{item.Carbon_Emission}</Text>
             </View>
           </View>
         </View>
@@ -98,10 +97,10 @@ const styles = StyleSheet.create({
     color: COLORS.BADGE_TEXT,
   },
   avatar: {
-    borderRadius: 5,
-    backgroundColor: COLORS.PRIMARY_BG,
-    height: 40,
-    width: 40,
+    // borderRadius: 5,
+    // backgroundColor: COLORS.PRIMARY_BG,
+    // height: 40,
+    // width: 40,
     padding: 5,
   },
   avatarText: {

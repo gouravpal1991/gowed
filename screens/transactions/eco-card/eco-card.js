@@ -28,7 +28,7 @@ class EcoCard extends Component {
             <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
               {/* <Image style={{ width: 60, height: 43  }} source={require('../../../images/chip.png')} /> */}
 
-              <Text style={styles.balance_amt}>{'200g'}</Text>
+              <Text style={styles.balance_amt}>{'\u20B9 1,100'}</Text>
             </View>
 
             <Text style={styles.credit_card_number}>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
     marginTop: 20,
 
-    fontSize: 22,
+    fontSize: 20,
 
     letterSpacing: 5,
   },
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
     marginTop: 10,
 
-    fontSize: 22,
+    fontSize: 18,
 
     letterSpacing: 5,
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 
     marginTop: 20,
 
-    fontSize: 30,
+    fontSize: 24,
 
     letterSpacing: 5,
   },
