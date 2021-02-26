@@ -13,6 +13,7 @@ import AddBudget from '../budget/add-budget';
 import Guests from '../guests';
 import Transfer from '../transfer/transfer';
 import Settings from '../settings';
+import Transactions from '../transactions/transactions';
 
 const Tabs = AnimatedTabBarNavigator();
 
@@ -65,7 +66,7 @@ const Discover = (props) => (
 
 const Images = () => (
   <Screen>
-    <AddBudget />
+    <Transactions />
   </Screen>
 );
 
@@ -118,7 +119,7 @@ const AppNavigation = () => {
         }}
       />
       <Tabs.Screen
-        name="Tx. Summary"
+        name="Transactions"
         component={Images}
         options={{
           tabBarIcon: ({focused, color}) => (

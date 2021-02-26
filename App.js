@@ -57,37 +57,54 @@ const App = () => {
     const [listener, setListener] = useState(false);
 
     const onOnlineSpeechResults = (e) => {
-      // const {navigationProps} = useContext (ThemeContext);
-      console.log('onOnlineSpeechResults result: ', e);
-      const {OfflineVoiceRecognizerModule} = NativeModules;
-      var timeLag = 1000;
-      // Voice.stop ();//switching off online listener
-      if (e.value.includes('balance')) {
-        console.log('going to speak balance..');
-        Tts.speak('Hi your account balance is rupees' + balance);
-        timeLag = 3000;
-      }
+      if (e.value && e.value.length > 0) {
+        // const {navigationProps} = useContext (ThemeContext);
+        console.log('onOnlineSpeechResults result: ', e);
+        const {OfflineVoiceRecognizerModule} = NativeModules;
+        var timeLag = 1000;
+        // Voice.stop ();//switching off online listener
+        const balanceResult = e.value.filter((word) =>
+          word.includes('balance'),
+        );
 
-      if (
-        e.value.includes('transfer') ||
-        e.value.includes('send') ||
-        e.value.includes('fund') ||
-        e.value.includes('payment')
-      ) {
-        //navigationProps.navigation.navigate ('Fund Transfer');
-        // navigate ('Fund Transfer', null);
-        Tts.speak('Navigating to fund transfer screen.');
-        showQuickModal();
-        timeLag = 3000;
+        if (balanceResult.length > 0) {
+          console.log('going to speak balance..');
+          Tts.speak('Your account balance is rupees ' + balance);
+          timeLag = 3000;
+        } else {
+          const transferResult = e.value.filter((word) => {
+            if (
+              word.includes('transfer') ||
+              word.includes('send') ||
+              word.includes('fund') ||
+              word.includes('payment') ||
+              word.includes('pay')
+            ) {
+              return true;
+            }
+          });
+
+          if (transferResult.length > 0) {
+            //navigationProps.navigation.navigate ('Fund Transfer');
+            // navigate ('Fund Transfer', null);
+            Tts.speak('Navigating to quick pay screen.');
+            showQuickModal();
+            timeLag = 1000;
+          }
+          setTimeout(function () {
+            console.log('Going to start the offline listener..');
+            OfflineVoiceRecognizerModule.startOfflineListener(); //local offline listener
+            // Tts.speak('How much amount do you want to transfer?');
+            // OfflineVoiceRecognizerModule.stopOfflineListener();
+            // Voice.start('en-US');
+            // Tts.speak('May I know your MPIN?');
+          }, timeLag);
+          // else {
+          //   Tts.speak ("Sorry I didn't get you!");
+          // }
+          // OfflineVoiceRecognizerModule.startOfflineListener();
+        }
       }
-      setTimeout(function () {
-        console.log('Going to start the offline listener..');
-        OfflineVoiceRecognizerModule.startOfflineListener(); //local offline listener
-      }, timeLag);
-      // else {
-      //   Tts.speak ("Sorry I didn't get you!");
-      // }
-      // OfflineVoiceRecognizerModule.startOfflineListener();
     };
 
     const containerStyle = {
