@@ -75,17 +75,18 @@ class CameraContainer extends Component {
         console.log(googleVisionRes);
         if (googleVisionRes) {
           this.setState({
-            loading: false,
+            // loading: false,
             googleVisionDetetion:
               googleVisionRes.responses[0].fullTextAnnotation.text,
             camera: false,
           });
           console.log('this.is response', this.state.googleVisionDetetion);
-          Tts.speak(this.state.googleVisionDetetion);
-          setTimeout(function () {
-            console.log('Going to start the offline listener..');
-            OfflineVoiceRecognizerModule.startOfflineListener(); //local offline listener
-          }, 2000);
+          this.callTranslateApi(this.state.googleVisionDetetion);
+          // Tts.speak(this.state.googleVisionDetetion);
+          // setTimeout(function () {
+          //   console.log('Going to start the offline listener..');
+          //   OfflineVoiceRecognizerModule.startOfflineListener(); //local offline listener
+          // }, 2000);
         }
       })
       .catch((error) => {
@@ -105,22 +106,42 @@ class CameraContainer extends Component {
     });
   };
 
-  callTranslateApi = async () => {
-    let googleVisionRes = await fetch('http://34.66.172.0:8080/translatetext', {
-      method: 'POST',
-      body: JSON.stringify({
-        requests: {
-          text: 'Good morning guys',
-          sourceLanguageCode: 'en',
-          targetLanguageCode: 'gu',
-        },
-      }),
-    });
+  //   {
+  //     "text":"Banking",
+  //     "sourceLangCode": "en",
+  //     "targetLangCode": "fr",
+  //     "other":"Domain",
+  //     "heading":"some collections were archived.",
+  //     "name": "Blind person"
+  // }
 
+  callTranslateApi = async (textToSpeak) => {
+    console.log('calling');
+    const {OfflineVoiceRecognizerModule} = NativeModules;
+    const params = {
+      text: textToSpeak,
+      sourceLangCode: 'en',
+      targetLangCode: 'es',
+    };
+    let googleVisionRes = await fetch('http://34.66.172.0:8080/translateText', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(params),
+    });
+    console.log('response');
+    this.setState({loading: false});
     await googleVisionRes
       .json()
       .then((googleVisionRes) => {
         console.log(googleVisionRes);
+        Tts.setDefaultLanguage('es');
+        Tts.speak(googleVisionRes.text);
+        setTimeout(function () {
+          console.log('Going to start the offline listener..');
+          OfflineVoiceRecognizerModule.startOfflineListener(); //local offline listener
+        }, 2000);
         // if (googleVisionRes) {
         //   this.setState({
         //     loading: false,
