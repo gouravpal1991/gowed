@@ -8,12 +8,14 @@ import {
   Button,
   TouchableOpacity,
   Alert,
+  ImageBackground
 } from 'react-native';
 import DoubleTap from '../common/DoubleTap';
 import PINCode, {
   hasUserSetPinCode,
   deleteUserPinCode,
 } from '@haskkor/react-native-pincode';
+import {Appbar} from 'react-native-paper';
 
 class Pincode extends React.Component {
   constructor(props, context) {
@@ -46,13 +48,22 @@ class Pincode extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        {this.state.showPinLock && (
-          <PINCode
-            status={this.state.PINCodeStatus}
-            touchIDDisabled={true}
-            finishProcess={() => this.finishProcess()}
-          />
-        )}
+        
+        <ImageBackground 
+            source={require('../../assets/images/bg.png')} 
+            style={{
+              flex: 1,
+              resizeMode: "stretch"}}>
+
+            {this.state.showPinLock && (
+              <PINCode
+                status={this.state.PINCodeStatus}
+                touchIDDisabled={true}
+                finishProcess={() => this.finishProcess()}
+              />
+            )}
+        </ImageBackground>
+        
       </View>
     );
   }

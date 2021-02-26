@@ -4,15 +4,16 @@ import {
   FlatList,
   Text,
   Dimensions,
-  TextInput,
-  Button,
   TouchableOpacity,
+  Image,
+  ImageBackground
 } from 'react-native';
-import Login from './login';
-import {Appbar} from 'react-native-paper';
+import {Appbar, TextInput, Button} from 'react-native-paper';
 import styles from './login-styles';
-import DoubleTap from '../common/DoubleTap';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// import {View, TextField, Text, Badge, Colors} from 'react-native-ui-lib';//eslint-disable-line
+
+
 const LoginTextInput = () => {
   const [value, onChangeText] = React.useState();
 
@@ -50,12 +51,71 @@ class LoginContainer extends React.Component {
     // const [pwdvalue, onChangeText2] = React.useState('Enter Your Password');
     return (
       <View style={{flex: 1}}>
-        <Appbar.Header style={[styles.appHeader, {backgroundColor: '#042245'}]}>
-          <Appbar.Action icon="menu" color={'#fff'} />
-          <Appbar.Content title="Login" color={'#fff'} />
-        </Appbar.Header>
-
-        <LoginTextInput />
+          <ImageBackground 
+              source={require('../../assets/images/build1.png')} 
+              style={{
+                flex: 1,
+                resizeMode: "contain"}}>
+              <View style={{flex:1}}>
+                <Text style={{flex:0.5}}></Text>
+                <View style={{flex:0.5}}>
+                  <LoginTextInput />
+                  <PwdTextInput />
+                  <View style={styles.btncontainer}>
+                    <TouchableOpacity
+                      style={styles.customBtnBG}
+                      onPress={() => {
+                        this.props.navigation.replace('PinCode');
+                      }}
+                      accessibilityHint='Enter user ID, password andthen double tap to login'>
+                      <Text style={styles.customBtnText}>Login</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.accessiblelayout}>
+                    <TouchableOpacity 
+                      style={styles.accessiblebtnlayout}
+                      onPress={() => {
+                        this.props.navigation.replace('PinCode');
+                      }}>
+                      <Icon name="lock" size={50} color={'#00aff0'} />
+                      <Text
+                        style={{
+                          color: 'white', 
+                          fontFamily: 'Cochin', fontSize: 15,
+                          }}
+                        accessibilityHint="Login using your mobile pin">
+                        MPin Login
+                      </Text>
+                    </TouchableOpacity>
+                    <View style={styles.accessiblebtnlayout}>
+                      <Icon name="fingerprint" size={50} color={'#00aff0'} />
+                      <Text
+                        style={{color: 'white',
+                        fontFamily: 'Cochin', fontSize: 15,
+                        }}
+                        accessibilityHint="Login using your fingerprint or touchID or face ID">
+                        Biometric Login
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+          </ImageBackground>
+          {/* <Image 
+              source={require('../../assets/images/dbcover.png')} 
+              style={{flex: 1, resizeMode: 'stretch'}} /> */}
+          {/* <View 
+              style={{
+                position: 'absolute', 
+                flexDirection: 'column',}}> */}
+              
+              {/* </View> */}
+              
+              
+    
+        
+       
+        {/* <LoginTextInput />
         <PwdTextInput />
 
         <View style={styles.btncontainer}>
@@ -63,20 +123,26 @@ class LoginContainer extends React.Component {
             style={styles.customBtnBG}
             onPress={() => {
               this.props.navigation.replace('PinCode');
-            }}>
-            <Text style={styles.customBtnText}>Login</Text>
+            }}
+            accessibilityHint='Enter user ID, password andthen double tap to login'>
+            <Text style={styles.customBtnText}
+            >Login</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.accessiblelayout}>
-          <View style={styles.accessiblebtnlayout}>
+          <TouchableOpacity 
+            style={styles.accessiblebtnlayout}
+            onPress={() => {
+              this.props.navigation.replace('PinCode');
+            }}>
             <Icon name="lock" size={50} color={'#00aff0'} />
             <Text
               style={{color: '#00aff0'}}
               accessibilityHint="Login using your mobile pin">
               MPin Login
             </Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.accessiblebtnlayout}>
             <Icon name="fingerprint" size={50} color={'#00aff0'} />
             <Text
@@ -85,7 +151,7 @@ class LoginContainer extends React.Component {
               FingerPrint Login
             </Text>
           </View>
-        </View>
+        </View> */}
       </View>
     );
   }
