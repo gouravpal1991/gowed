@@ -1,0 +1,46 @@
+{
+    "chart": {
+      "caption": "Your monthly spending trends",
+      "subCaption": "Your spent the most on Shopping this month",
+      "xAxisName": "Spending Pattern",
+      "yAxisName": "Expenditure",
+      "numberSuffix": "K",
+      "theme": "fusion"
+    },
+    
+    "data": [
+      {
+        "label": "Daily services",
+        "value": "2500"
+      },
+      {
+        "label": "Food",
+        "value": "3000"
+      },
+      {
+        "label": "Shopping",
+        "value": "14500"
+      },
+      {
+        "label": "Travel",
+        "value": "3000"
+      },
+      {
+        "label": "Finance",
+        "value": "11005"
+      },
+      {
+        "label": "Grocery",
+        "value": "10780"
+      },
+      {
+        "label": "Lifestyle",
+        "value": "3780"
+      },
+      {
+        "label": "Donation",
+        "value": "300"
+      }
+    ],
+    
+  }
