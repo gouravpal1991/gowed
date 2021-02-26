@@ -24,6 +24,7 @@ import OurServices from './our-services';
 import UserView from './user-view';
 import BalanceCardView from './balance-card-view';
 import FavTransactions from './fav-transactions';
+import EcoCard from './eco-card';
 
 function Home({props}) {
   const {
@@ -184,7 +185,8 @@ function Home({props}) {
         showsVerticalScrollIndicator={false}>
         <DoubleTap onDoubleTap={handleFontSize}>
           <View>
-            <BalanceCardView />
+            {/* <BalanceCardView /> */}
+            <EcoCard balance={balance} />
 
             {/* <ProgressChart
               data={progressChartData}

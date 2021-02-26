@@ -5,9 +5,11 @@ import TransactionListItem from './transaction-list-item';
 import EcoCard from './eco-card';
 import UserView from '../home/user-view';
 import {ThemeContext} from '../../src/contexts/ThemeContext';
+import {UserContext} from '../../src/contexts/usercontext';
 
 const Transactions = () => {
   const {isLightTheme, dark, light} = useContext(ThemeContext);
+  const {balance} = useContext(UserContext);
 
   const theme = isLightTheme ? dark : light;
 
@@ -68,7 +70,7 @@ const Transactions = () => {
       </Appbar.Header>
       <FlatList
         style={{paddingBottom: 200}}
-        ListHeaderComponent={<EcoCard />}
+        ListHeaderComponent={<EcoCard balance={balance} />}
         // keyExtractor={keyExtractor}
         data={list}
         renderItem={renderItem}

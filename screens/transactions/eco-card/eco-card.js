@@ -1,3 +1,5 @@
+import 'intl';
+import 'intl/locale-data/jsonp/en';
 import React, {Component} from 'react';
 
 import {StyleSheet, View, Text, Image} from 'react-native';
@@ -28,7 +30,12 @@ class EcoCard extends Component {
             <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
               {/* <Image style={{ width: 60, height: 43  }} source={require('../../../images/chip.png')} /> */}
 
-              <Text style={styles.balance_amt}>{'\u20B9 1,100'}</Text>
+              <Text style={styles.balance_amt}>
+                {new Intl.NumberFormat('en-IN', {
+                  style: 'currency',
+                  currency: 'INR',
+                }).format(this.props.balance)}
+              </Text>
             </View>
 
             <Text style={styles.credit_card_number}>

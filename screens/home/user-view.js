@@ -55,12 +55,12 @@ const UserView = () => {
           size={24}
           onPress={toggleTheme}
         />
-        <IconButton
+        {/* <IconButton
           icon="bell"
           color={'#606060'}
           size={24}
           onPress={() => console.log('Pressed')}
-        />
+        /> */}
       </View>
     </View>
   );
