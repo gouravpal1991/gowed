@@ -143,7 +143,7 @@ const App = () => {
     return (
       <View style={{flex: 1}}>
         <Stack.Navigator
-          initialRouteName={user ? 'Dashboard' : 'Login'}
+          initialRouteName={ 'Login'}
           screenOptions={{
             headerShown: false,
             headerTitleAlign: 'center',

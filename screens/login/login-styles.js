@@ -3,6 +3,8 @@ export default StyleSheet.create({
   appHeader: {
     height: 60,
     elevation: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   container: {
     flex: 1,
@@ -10,20 +12,24 @@ export default StyleSheet.create({
     // alignItems: 'center',
     backgroundColor: '#EE6080',
     padding: 20,
+    
   },
   btncontainer: {
-    flex: 1,
     padding: 15,
-    marginTop: 40,
+    marginTop: 16,
+    marginLeft:70,
+    marginRight:70
+    
   },
 
   /* Here style the text of your button */
   customBtnText: {
-    fontSize: 20,
     fontWeight: '200',
     color: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
+    fontSize: 18,
+    fontWeight: "bold"
   },
 
   /* Here style the background of your button */
@@ -31,7 +37,7 @@ export default StyleSheet.create({
     backgroundColor: '#00aff0',
     paddingHorizontal: 30,
     paddingVertical: 10,
-    borderRadius: 1,
+    borderRadius: 5,
     alignItems: 'center',
   },
 
@@ -39,14 +45,16 @@ export default StyleSheet.create({
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    margin: 15,
-    marginTop: 40,
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 20,
     padding: 5,
+    borderRadius: 5,
   },
   accessiblelayout: {
     margin: 15,
-    paddingLeft: 40,
-    paddingRight: 40,
+    paddingLeft: 60,
+    paddingRight: 60,
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
