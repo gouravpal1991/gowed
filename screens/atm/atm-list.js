@@ -51,6 +51,41 @@ const ATMList = () => {
     },
   });
 
+  const ATM_Accessibility_Icons = [
+    {
+      id: 'braille',
+      title: 'Visibility',
+      isChecked: true,
+      icon: 'Visibility',
+    },
+    {
+      id: 'audio',
+      title: '"Hearing',
+      isChecked: true,
+      icon: '"Hearing',
+    },
+    {
+      id: 'multilanguage',
+      title: 'Translate',
+      isChecked: false,
+      icon: 'Translate',
+    },
+    {
+      id: 'wheelChairRamp',
+      title: 'Accessible',
+      isChecked: false,
+      icon: 'Accessible',
+    },
+    {
+      id: 'metalPathway',
+      title: 'Theaters',
+      isChecked: false,
+      icon: 'Theaters',
+    },
+  ];
+
+  
+
   const Item = ({item}) => (
     <List.Item
       // onPress={() => props.navigation.push (item.screen)}

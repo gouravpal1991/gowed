@@ -12,7 +12,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {UserContext} from '../../src/contexts/usercontext';
 
 function Transfer(props) {
-  const {isLightTheme, light, dark, toggleTheme} = useContext(ThemeContext);
+  const {isLightTheme, light, dark, toggleTheme, messages} = useContext(ThemeContext);
   const {
     balance,
     setAvailableBalance,
@@ -88,7 +88,7 @@ function Transfer(props) {
             backgroundColor: theme.bg,
           },
         ]}>
-        <Text style={textStyle}>From Account</Text>
+        <Text style={textStyle}>{messages.FromAccount}</Text>
         <View style={pickerStyle}>
           <Picker
             selectedValue={fromAccount}
@@ -163,7 +163,7 @@ function Transfer(props) {
           keyboardType="numeric"
           style={inputStyle}
         />
-        <Text style={textStyle}>Remarks(Optional)</Text>
+        <Text style={textStyle}>{messages.Remarks}</Text>
         <TextInput
           accessibilityLabel="Remarks"
           accessibilityHint="Add purpose of transfer"
@@ -184,7 +184,7 @@ function Transfer(props) {
           mode="contained"
           onPress={() => transferAmount()}
           style={{marginTop: 20}}>
-          Transfer
+          {messages.Transfer}
         </Button>
       </ScrollView>
     </View>

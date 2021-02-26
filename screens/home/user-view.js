@@ -15,7 +15,7 @@ import {ThemeContext} from '../../src/contexts/ThemeContext';
 import {beneficiaries} from './beneficiary.json';
 
 const UserView = () => {
-  const {isLightTheme, light, dark, toggleTheme} = useContext(ThemeContext);
+  const {isLightTheme, light, dark, messages, } = useContext(ThemeContext);
 
   const theme = isLightTheme ? light : dark;
 
@@ -41,7 +41,7 @@ const UserView = () => {
           paddingLeft: 15,
         }}>
         <Text style={{color: theme.text, fontWeight: 'bold', fontSize: 14}}>
-          Nidhi Priya
+         {messages.Nidhi}
         </Text>
         <Text style={{color: theme.text, fontSize: 12}}>
           {'Last Login:' + new Date().toLocaleString()}

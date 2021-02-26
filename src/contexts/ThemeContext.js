@@ -1,9 +1,11 @@
 import React, {createContext, Component} from 'react';
+import { messages } from '../../en-IN.json';
 
 export const ThemeContext = createContext();
 
 class ThemeContextProvider extends Component {
   state = {
+    messages: messages,
     isAccessibilityOn: true,
     isLightTheme: true,
     isFontLarge: false,

@@ -18,6 +18,7 @@ function Quicktransfer(props) {
     setAvailableBalance,
     showSuccessModal,
     hideSuccessModal,
+    messages
   } = useContext(UserContext);
   const theme = isLightTheme ? light : dark;
   const {quickTransferVisible, hideQuickModal, toUser} = useContext(
@@ -137,7 +138,7 @@ function Quicktransfer(props) {
       </View>
       <View style={{flex: 1, alignItems: 'center'}}>
         <Text style={{paddingVertical: 10, color: theme.text}}>
-          Choose account to pay with
+          {messages.Choose_account}
         </Text>
         <View style={pickerStyle}>
           <Picker
@@ -187,7 +188,7 @@ function Quicktransfer(props) {
             mode="contained"
             onPress={() => transferAmount()}
             style={{marginTop: 50}}>
-            Pay
+            {messages.Pay}
           </Button>
           <Button
             accessible={true}
@@ -197,7 +198,7 @@ function Quicktransfer(props) {
             mode="contained"
             onPress={() => transferAmount()}
             style={{marginTop: 50, marginLeft: 50}}>
-            Request
+            {messages.Request}
           </Button>
         </View>
       </View>

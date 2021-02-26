@@ -28,6 +28,7 @@ const Settings = (props) => {
     navigationProps,
     toggleAccessbility,
     isAccessibilityOn,
+    messages
   } = useContext(ThemeContext);
 
   const {
@@ -131,7 +132,7 @@ const Settings = (props) => {
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
       title: 'Circle of Trust',
-      description: 'People whom you trust',
+      description: 'Close contacts for Telebanking/ VideoBanking',
       icon: 'mood',
       screen: SCREENS.ATM,
       type: 'press',
@@ -141,6 +142,54 @@ const Settings = (props) => {
       title: 'Accessibility Settings',
       description: 'Enable or disable Accessibility featrues',
       icon: 'accessibility',
+      screen: SCREENS.ATM,
+      type: 'switch',
+    },
+    {
+      id: '3242',
+      title: 'Translate',
+      description: 'Default: English (US)',
+      icon: 'translate',
+      screen: SCREENS.ATM,
+      type: 'switch',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Appearance',
+      description: 'Themes - Light/ Dark ',
+      icon: 'palette',
+      screen: SCREENS.ATM,
+      type: 'switch',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Voice Over',
+      description: 'Tap once for selection, Tap again for activation',
+      icon: 'settingsVoice',
+      screen: SCREENS.ATM,
+      type: 'switch',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Zoom',
+      description: 'Themes - Light/ Dark ',
+      icon: 'zoomIn',
+      screen: SCREENS.ATM,
+      type: 'switch',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Subtitle and Captioning',
+      description: 'Enable Audio Transcripts',
+      icon: 'subtitles',
+      screen: SCREENS.ATM,
+      type: 'switch',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Feedback',
+      description: 'We are continually improving, please share your feedback',
+      icon: 'subtitles',
       screen: SCREENS.ATM,
       type: 'switch',
     },

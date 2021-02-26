@@ -8,7 +8,7 @@ import {ThemeContext} from '../../src/contexts/ThemeContext';
 import {favtransactions as transaction} from './favtrans.json';
 
 const FavTransactions = () => {
-  const {isLightTheme, light, dark} = useContext(ThemeContext);
+  const {isLightTheme, light, dark, messages} = useContext(ThemeContext);
 
   const theme = isLightTheme ? light : dark;
   const itemView = ({item}) => {
@@ -41,7 +41,7 @@ const FavTransactions = () => {
   return (
     <View style={{flexDirection: 'column', flex: 1, padding: 10}}>
       <Text style={{fontWeight: 'bold', fontSize: 16, color: theme.text}}>
-        Favourite Transactions
+        {messages.Favourite_Transactions}
       </Text>
       <FlatList
         data={transaction}

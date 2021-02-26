@@ -17,7 +17,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {UserContext} from '../../src/contexts/usercontext';
 
 const SendToList = () => {
-  const {isLightTheme, light, dark} = useContext(ThemeContext);
+  const {isLightTheme, light, dark, messages} = useContext(ThemeContext);
   const {showQuickModal, setToTransferUser} = useContext(UserContext);
 
   const theme = isLightTheme ? light : dark;
@@ -47,7 +47,7 @@ const SendToList = () => {
   return (
     <View style={{flexDirection: 'column', flex: 1, padding: 10}}>
       <Text style={{fontWeight: 'bold', fontSize: 16, color: theme.text}}>
-        Send To
+        {messages.Send_to}
       </Text>
       <FlatList
         data={beneficiaries}

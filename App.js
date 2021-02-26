@@ -53,7 +53,7 @@ const App = () => {
       balance,
       showQuickModal,
     } = useContext(UserContext);
-    const {isLightTheme, light, dark, toggleTheme} = useContext(ThemeContext);
+    const {isLightTheme, light, dark, toggleTheme, messages} = useContext(ThemeContext);
     const theme = isLightTheme ? light : dark;
     const [listener, setListener] = useState(false);
 
@@ -154,7 +154,7 @@ const App = () => {
           <Icon name="check-circle-outline" size={100} color={'green'} />
           <Text
             style={{color: theme.text, fontSize: theme.labelFont, padding: 20}}>
-            Transfer successful!
+            {messages.Transfer_success}
           </Text>
         </Modal>
 

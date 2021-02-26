@@ -16,8 +16,9 @@ import styles from './home-styles';
 import {beneficiaries} from './beneficiary.json';
 import {UserContext} from '../../src/contexts/usercontext';
 
+
 const BalanceCardView = () => {
-  const {isLightTheme, light, dark} = useContext(ThemeContext);
+  const {isLightTheme, light, dark, messages} = useContext(ThemeContext);
   const {balance} = useContext(UserContext);
 
   const theme = isLightTheme ? light : dark;
@@ -49,7 +50,7 @@ const BalanceCardView = () => {
       > */}
 
         <Card.Content>
-          <Paragraph style={[{color: theme.text}]}>Balance</Paragraph>
+          <Paragraph style={[{color: theme.text}]}>{messages.Balance}</Paragraph>
           <Title style={[{color: theme.text}]}>
             {new Intl.NumberFormat('en-IN', {
               style: 'currency',
@@ -59,7 +60,7 @@ const BalanceCardView = () => {
         </Card.Content>
 
         <Card.Content style={{flexDirection: 'column'}}>
-          <Paragraph style={[{color: theme.text}]}>Account Number</Paragraph>
+          <Paragraph style={[{color: theme.text}]}>{messages.Account_Number}</Paragraph>
           <Title style={[{color: theme.text}]}>400039098767</Title>
         </Card.Content>
       </ImageBackground>

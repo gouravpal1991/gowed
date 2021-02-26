@@ -9,7 +9,7 @@ import {services} from './services.json';
 import CameraContainer from '../Camera/cameracontainer';
 
 const OurServices = ({props}) => {
-  const {isLightTheme, light, dark} = useContext(ThemeContext);
+  const {isLightTheme, light, dark, messages} = useContext(ThemeContext);
 
   const theme = isLightTheme ? light : dark;
   const handleClick = (item) => {
@@ -54,7 +54,7 @@ const OurServices = ({props}) => {
   return (
     <View style={{flexDirection: 'column', flex: 1, padding: 10}}>
       <Text style={{fontWeight: 'bold', fontSize: 16, color: theme.text}}>
-        Our Services
+        {messages.Our_Services}
       </Text>
       <FlatList
         data={services}
